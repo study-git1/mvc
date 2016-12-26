@@ -1,15 +1,16 @@
 <?php
 namespace app\controller;
-class indexController
+header("content-type:text/html;charset=utf-8");
+class indexController extends \core\mvc
 {
 	
 	public function index()
 	{
 		//p('it is index');
 		$data = 'Hello word';
-		$model = new \core\lib\model();
-		$sql = "select * from cate";
-		$ret = $model->query($sql);
-		p($ret->fetchAll());
+		$title = "视图文件";
+		$this->assign('title',$title);
+		$this->assign('data',$data);
+		$this->display('index.html');
 	}
 }

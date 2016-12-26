@@ -56,6 +56,11 @@ class mvc
     }
     public function display($file)
     {
-
+    	$file = APP.'/views/'.$file;
+		if(is_file($file))
+		{
+			extract($this->assign);
+			include $file;
+		}
     }
 }
